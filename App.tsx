@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Box from './src/components/Box';
+import InterpolateScrollView from './src/components/InterpolateScrollView';
 import PanGesture from './src/components/PanGesture';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <PanGesture />
+      <InterpolateScrollView />
       <StatusBar style='auto' />
     </View>
   );

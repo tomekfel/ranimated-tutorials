@@ -1,21 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import InterpolateColors from './src/components/InterpolateColors';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+import PinchGesture from './src/components/PinchGesture';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <InterpolateColors />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <PinchGesture />
       <StatusBar style='dark' />
-    </View>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

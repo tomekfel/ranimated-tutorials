@@ -5,7 +5,7 @@ import {
   ImageBackground,
   Dimensions,
 } from 'react-native';
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { TapGestureHandler } from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedStyle,
@@ -18,6 +18,8 @@ import Animated, {
 const AnimatedImage = Animated.createAnimatedComponent(Image);
 
 const DoubleTap = () => {
+  console.log('DoubleTap');
+
   const scale = useSharedValue(0);
   const opacity = useSharedValue(1);
   const doubleTapRef = useRef();
@@ -30,13 +32,13 @@ const DoubleTap = () => {
     });
   };
 
-  const onSingleTap = () => {
+  const onSingleTap = useCallback(() => {
     opacity.value = withTiming(0, undefined, (isFinished) => {
       if (isFinished) {
         opacity.value = withDelay(500, withTiming(1));
       }
     });
-  };
+  }, []);
 
   const rStyle = useAnimatedStyle(() => {
     return {
@@ -54,6 +56,7 @@ const DoubleTap = () => {
     <View style={styles.container}>
       <TapGestureHandler waitFor={doubleTapRef} onActivated={onSingleTap}>
         <TapGestureHandler
+          maxDelayMs={250}
           ref={doubleTapRef}
           numberOfTaps={2}
           onActivated={onDoubleTap}

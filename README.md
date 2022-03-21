@@ -6,3 +6,4 @@ Links to each section:
 * [Interpolate ScrollView](https://www.youtube.com/watch?v=SqwpRr7kbnQ)
 * [Interpolate Colors](https://www.youtube.com/watch?v=U_V9pHnTXjA)
 * [Scroll View from scratch](https://www.youtube.com/watch?v=Fd5FWxx7c48)
+* [Color Picker](https://www.youtube.com/watch?v=XH35ahDm3as)
